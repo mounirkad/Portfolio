@@ -243,33 +243,9 @@
     /* Cache le cursor sur mobile (inutile sur tactile) */
     .cursor,.cursor-ring{display:none;}
 
-    .hamburger{display:flex;}
-
-    /* ---- FIX PRINCIPAL : menu caché par défaut sur mobile ---- */
-    .nav-links{
-      display:none !important;
-      position:fixed;
-      top:64px;
-      left:0;
-      right:0;
-      bottom:0;
-      background:rgba(10,10,10,0.98);
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:2.5rem;
-      z-index:9000;
-      list-style:none;
-    }
-    .nav-links.open{
-      display:flex !important;
-    }
-    .nav-links a{font-size:1.1rem;}
-
-    /* hamburger animé quand ouvert */
-    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .hamburger.open span:nth-child(2){opacity:0;}
-    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    /* Cache hamburger ET nav links sur mobile — only logo + lang */
+    .hamburger{display:none !important;}
+    .nav-links{display:none !important;}
 
     .about-grid,.contact-grid{grid-template-columns:1fr;}
     .avatar-frame{width:200px;height:200px;}
@@ -553,7 +529,7 @@
   </section>
 
   <footer>
-    <span>© 2026 <span class="y">KADIRI</span> <span class="y">MOUNIR</span> — <span class="fr-only">Tous droits réservés</span><span class="en-only">All rights reserved</span></span>
+    <span>© 2025 <span class="y">KADIRI</span> <span class="y">MOUNIR</span> — <span class="fr-only">Tous droits réservés</span><span class="en-only">All rights reserved</span></span>
     <span style="font-size:.65rem;"><span class="fr-only">Conçu avec <span class="y">passion</span> &amp; dévouement</span><span class="en-only">Crafted with <span class="y">passion</span> &amp; dedication</span></span>
   </footer>
 </div>
