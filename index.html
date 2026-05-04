@@ -6,6 +6,8 @@
 <title>Portfolio — Kadiri Mounir</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root {
     --yellow: #f5c518;
@@ -39,6 +41,7 @@
   .lang-btn:not(.active):hover{color:var(--yellow);}
   .lang-sep{color:var(--border-y);font-size:.7rem;pointer-events:none;}
 
+  /* ===================== INTRO ===================== */
   #intro{position:fixed;inset:0;z-index:9990;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
   #ig{position:absolute;inset:0;background-image:linear-gradient(rgba(245,197,24,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,0.04) 1px,transparent 1px);background-size:50px 50px;animation:igf 4s ease forwards;}
   @keyframes igf{0%{opacity:0}30%{opacity:1}80%{opacity:1}100%{opacity:0}}
@@ -81,6 +84,7 @@
   #sw{opacity:0;transition:opacity .9s ease;}
   #sw.visible{opacity:1;}
 
+  /* ===================== CURSOR ===================== */
   .cursor{width:10px;height:10px;background:var(--yellow);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px var(--yellow),0 0 30px var(--yellow-glow);}
   .cursor-ring{width:34px;height:34px;border:1px solid var(--yellow);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.45;}
   ::-webkit-scrollbar{width:4px;}
@@ -89,6 +93,7 @@
   body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
   body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);}
 
+  /* ===================== NAV ===================== */
   nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-y);}
   .nav-logo{font-family:var(--display);font-size:1rem;font-weight:900;text-decoration:none;letter-spacing:.1em;}
   .logo-y{color:var(--yellow);text-shadow:0 0 18px var(--yellow-glow);}
@@ -98,9 +103,10 @@
   .nav-links a{font-family:var(--mono);font-size:.75rem;color:var(--text-dim);text-decoration:none;text-transform:uppercase;letter-spacing:.15em;transition:color .2s,text-shadow .2s;}
   .nav-links a:hover{color:var(--yellow);text-shadow:0 0 12px var(--yellow-glow);}
   .nav-links a::before{content:'// ';color:var(--yellow);opacity:.5;}
-  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
   .hamburger span{display:block;width:24px;height:2px;background:var(--yellow);transition:.3s;}
 
+  /* ===================== HERO ===================== */
   #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 5% 0;}
   .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,197,24,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,0.04) 1px,transparent 1px);background-size:60px 60px;animation:gp 8s ease-in-out infinite;}
   @keyframes gp{0%,100%{opacity:.35}50%{opacity:.7}}
@@ -132,12 +138,14 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
   @keyframes fadeIn{to{opacity:1}}
 
+  /* ===================== SECTIONS ===================== */
   section{padding:100px 5%;position:relative;}
   .section-header{margin-bottom:4rem;}
   .section-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.6rem;display:block;color:var(--yellow);opacity:.7;}
   .section-title{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.1;}
   .section-line{width:90px;height:2px;margin-top:1rem;background:linear-gradient(90deg,var(--yellow),transparent);box-shadow:0 0 16px var(--yellow-glow);}
 
+  /* ===================== ABOUT ===================== */
   #about{background:var(--bg2);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
   .about-visual{display:flex;align-items:center;justify-content:center;}
@@ -155,6 +163,7 @@
   .info-item{font-family:var(--mono);font-size:.8rem;color:var(--text-dim);display:flex;align-items:center;gap:.5rem;}
   .info-item .iy{color:var(--yellow);width:16px;}
 
+  /* ===================== SKILLS ===================== */
   #skills{background:var(--bg);}
   .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
   .skill-card{background:var(--bg2);border:1px solid var(--border-yd);padding:2rem;position:relative;transition:border-color .3s,box-shadow .3s;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));}
@@ -166,6 +175,7 @@
   .skill-bar-track{height:3px;background:var(--bg4);border-radius:2px;overflow:hidden;}
   .skill-bar-fill{height:100%;border-radius:2px;width:0;background:linear-gradient(90deg,var(--yellow-dim),var(--yellow));box-shadow:0 0 10px var(--yellow-glow);transition:width 1.2s cubic-bezier(.4,0,.2,1);}
 
+  /* ===================== PROJECTS ===================== */
   #projects{background:var(--bg2);}
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
   .project-card{background:var(--bg3);border:1px solid var(--border-yd);overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s,border-color .3s;}
@@ -186,6 +196,7 @@
   .plink:hover{text-shadow:0 0 12px var(--yellow-glow);}
   .plink-dim:hover{color:var(--yellow);}
 
+  /* ===================== EXPERIENCE ===================== */
   #experience{background:var(--bg);}
   .timeline{position:relative;padding-left:2rem;max-width:800px;}
   .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(var(--yellow),rgba(245,197,24,0.15),transparent);box-shadow:0 0 8px var(--yellow-glow);}
@@ -201,6 +212,7 @@
   .timeline-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
   .t-skill{font-family:var(--mono);font-size:.63rem;color:var(--text-dim);background:var(--bg2);border:1px solid rgba(255,255,255,0.07);padding:.2rem .5rem;}
 
+  /* ===================== CONTACT ===================== */
   #contact{background:var(--bg2);}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
   .contact-info h3{font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:1rem;}
@@ -219,17 +231,46 @@
   .form-group textarea{height:130px;}
   .form-status{font-family:var(--mono);font-size:.8rem;margin-top:.5rem;min-height:1.2em;}
 
+  /* ===================== FOOTER ===================== */
   footer{background:var(--bg);border-top:1px solid var(--border-yd);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:.72rem;color:var(--text-dim);flex-wrap:wrap;gap:1rem;}
   footer .y{color:var(--yellow);}
 
   .fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s;}
   .fade-in.visible{opacity:1;transform:none;}
 
+  /* ===================== MOBILE — BUG FIX ===================== */
   @media(max-width:768px){
+    /* Cache le cursor sur mobile (inutile sur tactile) */
+    .cursor,.cursor-ring{display:none;}
+
     .hamburger{display:flex;}
-    .nav-links{position:fixed;inset:64px 0 0;background:rgba(10,10,10,0.97);flex-direction:column;align-items:center;justify-content:center;gap:2rem;transform:translateX(100%);transition:transform .3s;z-index:499;}
-    .nav-links.open{transform:translateX(0);}
-    .nav-links a{font-size:1rem;}
+
+    /* ---- FIX PRINCIPAL : menu caché par défaut sur mobile ---- */
+    .nav-links{
+      display:none !important;
+      position:fixed;
+      top:64px;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(10,10,10,0.98);
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:2.5rem;
+      z-index:9000;
+      list-style:none;
+    }
+    .nav-links.open{
+      display:flex !important;
+    }
+    .nav-links a{font-size:1.1rem;}
+
+    /* hamburger animé quand ouvert */
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
     .about-grid,.contact-grid{grid-template-columns:1fr;}
     .avatar-frame{width:200px;height:200px;}
     .info-grid{grid-template-columns:1fr;}
@@ -298,7 +339,7 @@
         <span class="lang-sep">|</span>
         <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
       </div>
-      <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -444,24 +485,14 @@
       <div class="section-line"></div>
     </div>
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-meta">2025 <span class="fr-only"></span><span class="en-only"></span></div>
+        <div class="timeline-meta">2025</div>
         <div class="timeline-title"><span class="fr-only">Participation au Hackathon INNOVTECH</span><span class="en-only">INNOVTECH Hackathon Participation</span></div>
-        <div class="timeline-company"><span class="fr-only">Djezzy — Algérie</span><span class="en-only">Djezzy — Algéria</span></div>
-        <p class="timeline-desc"><span class="fr-only">
-      Participation au hackathon INNOVTECH organisé par Djezzy, une première expérience marquante dans ce type d’événement. Travail intensif en équipe pour identifier un problème réel, concevoir une solution innovante et préparer un pitch final dans un délai très court. Participation à des ateliers, sessions de mentorat et échanges avec des experts du domaine. Expérience enrichissante ayant permis de développer la gestion du stress, le travail en équipe et la capacité à innover sous pression.
-    </span>
-    <span class="en-only">
-      Took part in the INNOVTECH Hackathon organized by Djezzy, my first-ever hackathon experience. Worked intensively as a team to identify a real problem, design an innovative solution, and deliver a final pitch within a short timeframe. Participated in workshops, mentoring sessions, and expert guidance. A highly enriching experience that strengthened my ability to handle pressure, collaborate effectively, and innovate in fast-paced environments.
-    </span></p>
-        <div class="timeline-skills"><span class="t-skill">Teamwork</span>
-    <span class="t-skill">Problem Solving</span>
-    <span class="t-skill">Innovation</span>
-    <span class="t-skill">Pitching</span></div>
+        <div class="timeline-company"><span class="fr-only">Djezzy — Algérie</span><span class="en-only">Djezzy — Algeria</span></div>
+        <p class="timeline-desc"><span class="fr-only">Participation au hackathon INNOVTECH organisé par Djezzy, une première expérience marquante dans ce type d'événement. Travail intensif en équipe pour identifier un problème réel, concevoir une solution innovante et préparer un pitch final dans un délai très court.</span><span class="en-only">Took part in the INNOVTECH Hackathon organized by Djezzy, my first-ever hackathon experience. Worked intensively as a team to identify a real problem, design an innovative solution, and deliver a final pitch within a short timeframe.</span></p>
+        <div class="timeline-skills"><span class="t-skill">Teamwork</span><span class="t-skill">Problem Solving</span><span class="t-skill">Innovation</span><span class="t-skill">Pitching</span></div>
       </div>
-
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-meta"><span class="fr-only">Juin 2023 — Août 2023</span><span class="en-only">June 2023 — August 2023</span></div>
@@ -472,10 +503,10 @@
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-meta"><span class="fr-only">Juillet 2022 — janvier 2026</span><span class="en-only">July 2022 — January 2026</span></div>
+        <div class="timeline-meta"><span class="fr-only">Juillet 2022 — Janvier 2026</span><span class="en-only">July 2022 — January 2026</span></div>
         <div class="timeline-title"><span class="fr-only">Organisateur d'événements commerciaux</span><span class="en-only">Commercial Events Organizer</span></div>
         <div class="timeline-company"><span class="fr-only">MnAgencey — Oran</span><span class="en-only">MnAgencey — Oran</span></div>
-        <p class="timeline-desc"><span class="fr-only">Coordination des événements commerciaux, gestion des équipes sur le terrain et suivi des performances commerciales afin d’optimiser les résultats.</span><span class="en-only">Coordinated commercial events, managed field teams, and monitored sales performance to optimize results.</span></p>
+        <p class="timeline-desc"><span class="fr-only">Coordination des événements commerciaux, gestion des équipes sur le terrain et suivi des performances commerciales afin d'optimiser les résultats.</span><span class="en-only">Coordinated commercial events, managed field teams, and monitored sales performance to optimize results.</span></p>
         <div class="timeline-skills"><span class="t-skill">Communication</span><span class="t-skill">Management</span><span class="t-skill">Organisation</span><span class="t-skill">Sales</span></div>
       </div>
       <div class="timeline-item">
@@ -486,7 +517,6 @@
         <p class="timeline-desc"><span class="fr-only">Formation approfondie en architecture logicielle, systèmes distribués, bases de données avancées et développement d'applications web modernes.</span><span class="en-only">In-depth training in software architecture, distributed systems, advanced databases and modern web application development.</span></p>
         <div class="timeline-skills"><span class="t-skill"><span class="fr-only">Systèmes distribués</span><span class="en-only">Distributed Systems</span></span><span class="t-skill">UML</span><span class="t-skill"><span class="fr-only">Architecture MVC</span><span class="en-only">MVC Architecture</span></span></div>
       </div>
-      
     </div>
   </section>
 
@@ -508,15 +538,15 @@
         <div class="social-row">
           <a href="https://github.com/mounirkad" class="social-icon"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/mounir-kadiri-5648b117a/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-          
+          <a href="https://x.com/MounirKad" class="social-icon"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/mounir_kadr/" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
       <div class="fade-in">
         <div class="form-group"><label><span class="fr-only">Votre Nom</span><span class="en-only">Your Name</span></label><input type="text" id="fname" placeholder="..."></div>
-        <div class="form-group"><label><span class="fr-only">Adresse Email</span><span class="en-only">Email Address</span></label><input type="email" id="femail" placeholder="...@gmai.com"></div>
+        <div class="form-group"><label><span class="fr-only">Adresse Email</span><span class="en-only">Email Address</span></label><input type="email" id="femail" placeholder="...@gmail.com"></div>
         <div class="form-group"><label>Message</label><textarea id="fmsg" placeholder="..."></textarea></div>
-        <button class="btn-primary" onclick="sendForm()" style="width:100%;font-size:.78rem;"><i class="fas fa-paper-plane"></i> &nbsp;<span class="fr-only">ENVOYER LE MESSAGE</span><span class="en-only">SEND MESSAGE</span></button>
+        <button class="btn-primary" id="sendBtn" onclick="sendForm()" style="width:100%;font-size:.78rem;"><i class="fas fa-paper-plane"></i> &nbsp;<span class="fr-only">ENVOYER LE MESSAGE</span><span class="en-only">SEND MESSAGE</span></button>
         <p class="form-status" id="formStatus"></p>
       </div>
     </div>
@@ -530,23 +560,49 @@
 
 <script>
 /* ================================================================
-   ORDRE CORRECT : toutes les variables globales en premier,
-   AVANT tout appel à setLang() ou resetTyped().
-   C'est ça qui causait "Cannot access 'typedTimer' before initialization"
+   EmailJS — CONFIGURATION
+   1. Va sur https://emailjs.com et crée un compte gratuit
+   2. Crée un "Email Service" (Gmail) → copie le Service ID
+   3. Crée un "Email Template" avec ces variables :
+      {{from_name}}, {{from_email}}, {{message}}, {{to_name}}
+      → copie le Template ID
+   4. Va dans Account → copie ta Public Key
+   5. Remplace les 3 valeurs ci-dessous
 ================================================================ */
+const EMAILJS_PUBLIC_KEY  = '1pdm__Vyaaujms8xJ';    // ex: 'abc123XYZ'
+const EMAILJS_SERVICE_ID  = 'service_uabqv75';    // ex: 'service_xxxxxx'
+const EMAILJS_TEMPLATE_ID = 'cumo574';   // ex: 'template_xxxxxx'
 
-/* -- Données -- */
+(function() {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+})();
+
+/* ================================================================
+   DONNÉES
+================================================================ */
 const PHRASES = {
   fr: ['Étudiant Master 2...','Full Stack...','Passionné par les systèmes d\'information...','Créateur de solutions numériques...'],
   en: ['Master 2 Student...','Full Stack...','Passionate about information systems...','Creator of digital solutions...']
 };
 const FORM_MSGS = {
-  fr: { empty:'[ ERREUR ] Veuillez remplir tous les champs.', email:'[ ERREUR ] Email invalide.', sending:'[ ENVOI EN COURS ]...', ok:'[ SUCCÈS ] Message envoyé. À bientôt !' },
-  en: { empty:'[ ERROR ] Please fill in all fields.', email:'[ ERROR ] Invalid email.', sending:'[ SENDING ]...', ok:'[ SUCCESS ] Message sent. Talk soon!' }
+  fr: {
+    empty:   '[ ERREUR ] Veuillez remplir tous les champs.',
+    email:   '[ ERREUR ] Email invalide.',
+    sending: '[ ENVOI EN COURS ]...',
+    ok:      '[ SUCCÈS ] Message envoyé. À bientôt !',
+    error:   '[ ERREUR ] Échec de l\'envoi. Réessayez.'
+  },
+  en: {
+    empty:   '[ ERROR ] Please fill in all fields.',
+    email:   '[ ERROR ] Invalid email.',
+    sending: '[ SENDING ]...',
+    ok:      '[ SUCCESS ] Message sent. Talk soon!',
+    error:   '[ ERROR ] Send failed. Please try again.'
+  }
 };
 const IBAR_LABELS = { fr:'INITIALISATION DU SYSTÈME', en:'SYSTEM INITIALIZATION' };
 
-/* -- État global typed (déclaré AVANT setLang / resetTyped) -- */
+/* -- État typed -- */
 let currentLang = 'fr';
 let typedTimer  = null;
 let pi = 0, ci = 0, del = false;
@@ -585,7 +641,6 @@ function typeLoop() {
 
 /* ── INTRO ── */
 (function () {
-  /* Langue sauvegardée — safe car typedTimer est déjà déclaré */
   try { const s = localStorage.getItem('lang'); if (s === 'en') setLang('en'); } catch(e) {}
 
   const lbl = document.getElementById('ibar-label');
@@ -598,7 +653,6 @@ function typeLoop() {
   const intro = document.getElementById('intro');
   const site  = document.getElementById('sw');
 
-  /* easeInOutCubic — visible dès la 1re frame */
   const DURATION = 2200;
   function ease(t) { return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2; }
 
@@ -627,30 +681,48 @@ function typeLoop() {
   requestAnimationFrame(tick);
 })();
 
-/* Lance le typed (indépendant de l'intro) */
 typeLoop();
 
-/* ── CURSOR ── */
+/* ── CURSOR (desktop seulement) ── */
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  if(cursor){ cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
 });
 (function loop() {
   rx += (mx - rx) * .12; ry += (my - ry) * .12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  if(ring){ ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
   requestAnimationFrame(loop);
 })();
 document.querySelectorAll('a,button,.project-card,.social-icon').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.opacity = '.8'; });
-  el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)';   ring.style.opacity = '.45'; });
+  el.addEventListener('mouseenter', () => { if(ring){ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.opacity='.8';} });
+  el.addEventListener('mouseleave', () => { if(ring){ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='.45';} });
 });
 
-/* ── NAV ── */
-function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
-function closeNav()  { document.getElementById('navLinks').classList.remove('open'); }
+/* ── NAV MOBILE — FIX ── */
+function toggleNav() {
+  const nav  = document.getElementById('navLinks');
+  const burger = document.getElementById('hamburger');
+  const isOpen = nav.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  // Bloque le scroll du body quand menu ouvert
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Ferme le menu si on clique en dehors
+document.addEventListener('click', function(e) {
+  const nav    = document.getElementById('navLinks');
+  const burger = document.getElementById('hamburger');
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) {
+    closeNav();
+  }
+});
 
 /* ── SCROLL ANIMATIONS ── */
 const obs = new IntersectionObserver(es => {
@@ -667,22 +739,47 @@ const bObs = new IntersectionObserver(es => {
 }, { threshold: .3 });
 document.querySelectorAll('.skill-card').forEach(c => bObs.observe(c));
 
-/* ── FORM ── */
-function sendForm() {
-  const n = document.getElementById('fname').value.trim();
-  const e = document.getElementById('femail').value.trim();
-  const m = document.getElementById('fmsg').value.trim();
-  const s = document.getElementById('formStatus');
+/* ── FORMULAIRE EMAILJS ── */
+async function sendForm() {
+  const n   = document.getElementById('fname').value.trim();
+  const e   = document.getElementById('femail').value.trim();
+  const m   = document.getElementById('fmsg').value.trim();
+  const s   = document.getElementById('formStatus');
+  const btn = document.getElementById('sendBtn');
   const msgs = FORM_MSGS[currentLang];
-  if (!n || !e || !m) { s.textContent = msgs.empty; s.style.color = 'var(--yellow)'; return; }
-  if (!e.includes('@')) { s.textContent = msgs.email; s.style.color = 'var(--yellow)'; return; }
-  s.textContent = msgs.sending; s.style.color = 'var(--yellow)';
-  setTimeout(() => {
+
+  if (!n || !e || !m) { s.textContent = msgs.empty; s.style.color = '#ff6b6b'; return; }
+  if (!e.includes('@') || !e.includes('.')) { s.textContent = msgs.email; s.style.color = '#ff6b6b'; return; }
+
+  s.textContent   = msgs.sending;
+  s.style.color   = 'var(--yellow)';
+  btn.disabled    = true;
+  btn.style.opacity = '.6';
+
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      name:      n,
+      email:     e,
+      message:   m,
+      title:     'Portfolio Contact',
+      from_name: n,
+      from_email:e,
+      reply_to:  e,
+      to_name:   'Kadiri Mounir'
+    });
     s.textContent = msgs.ok;
+    s.style.color = '#4ade80';
     document.getElementById('fname').value  = '';
     document.getElementById('femail').value = '';
     document.getElementById('fmsg').value   = '';
-  }, 1200);
+  } catch(err) {
+    console.error('EmailJS error:', err);
+    s.textContent = msgs.error;
+    s.style.color = '#ff6b6b';
+  } finally {
+    btn.disabled      = false;
+    btn.style.opacity = '1';
+  }
 }
 
 /* ── ACTIVE NAV ── */
@@ -693,7 +790,7 @@ window.addEventListener('scroll', () => {
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--yellow)' : '';
   });
-});
+}, { passive: true });
 </script>
 </body>
 </html>
